@@ -15,7 +15,7 @@ public partial class AspDotNet : System.Web.UI.Page
         for (int i = 1; i <= 10; i++)
         {
             if(i%2==0)
-            strkefel += "<tr style= 'background-Color:blue'>";
+            strkefel += "<tr style= 'background-Color:violet'>";
             else
                 strkefel += "<tr style= 'background-Color:pink'>";
             for (int j = 1; j <= 10; j++)
