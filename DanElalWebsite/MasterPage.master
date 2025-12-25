@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>דן</title>
+    <title>האתר של דן</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -16,7 +16,7 @@
 </head>
 <body dir="rlt" style="background-color: lightblue">
     <center>
-        <font style="color: midnightblue; font-size: 50px; font-variant">כותרת</font>
+        <font style="color: midnightblue; font-size: 50px; font-variant">האתר שלי</font>
         <table border="1" style="width: 90%; height: 600px">
             <tr style="height:100px" >
                 <td style="text-align:center">
