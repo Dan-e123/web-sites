@@ -22,14 +22,13 @@
                 <td style="text-align:center">
                     <a href="Home.aspx"><img class="gallery" src="photos/דף%20הבית.png" /></a>
                     <a href="entering.aspx"><img  class="gallery"  src="photos/כניסה.png" /></a>
-                       <a href="signIn.aspx"><img  class="gallery"  src= "photos/הרשמה.png" /></a>
                        <a href="info.aspx"><img  class="gallery"  src="photos/מידע.png" /></a>
                     <a href="gallery.aspx"><img class="gallery" src="photos/גלריה.png" /></a>
                           <a href="exit.aspx"><img class="gallery" src="photos/יציאה.png" /></a>
                           <a href="search.aspx"><img class="gallery" src="photos/חיפוש.png" /></a>
                      <a href="manager.aspx"><img class="gallery" src="photos/מנהל.png" /></a>
                        <a href="updateDetails.aspx"><img class="gallery" src="photos/עדכון פרטים.png" /></a>
-                     <a href="form.aspx"><img class="gallery" src="photos/טופס.png" /></a>
+                     <a href="signIn.aspx"><img class="gallery" src="photos/טופס.png" /></a>
                 </td>
             </tr>
             <tr>
