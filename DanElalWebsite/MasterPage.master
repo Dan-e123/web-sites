@@ -14,7 +14,7 @@
         }
     </style>
 </head>
-<body dir="rtl" style="background-color: lightblue">
+<body dir="rtl" style="background-color: lightcyan">
     <center>
         <font style="color: midnightblue; font-size: 50px; font-variant">האתר שלי</font>
         <table border="1" style="width: 90%; height: 600px">
@@ -28,7 +28,7 @@
                           <a href="search.aspx"><img class="gallery" src="photos/חיפוש.png" /></a>
                      <a href="manager.aspx"><img class="gallery" src="photos/מנהל.png" /></a>
                        <a href="updateDetails.aspx"><img class="gallery" src="photos/עדכון פרטים.png" /></a>
-                     <a href="signIn.aspx"><img class="gallery" src="photos/טופס.png" /></a>
+                     <a href="signIn.aspx"><img class="gallery" src="photos/הרשמה2.png" /></a>
                 </td>
             </tr>
             <tr>

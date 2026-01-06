@@ -17,7 +17,7 @@
        יומני הערפד<input type="checkbox" name="check2" value="יומני הערפד"  id="check_3"><br />
         ברוקולין 99<input type="checkbox" name="check2" value="ברוקלין 99 "  id="check_4"><br />
         דברים מוזרים: <input type="checkbox" name="check2" value="דברים מוזרים" id="check_5"><br />
-     אחר: <input type="text" name="else" id="else" placeholder="דוגמה">
+     אחר: <input type="text" name="elsee" id="else" placeholder="דוגמה">
            <br />
          <br />
     האם אתה מאשר קבלת דברי פרסום לכתובת הדואר האלקטרוני שלך? : 
@@ -40,4 +40,21 @@
         <br />
         <input id="Submit1" type="submit" value="שלח" />
     </form>
+
+
+
+    <hr />
+
+    <%--**איזור הצגת התוצאות**--%>
+    <!--%Response.Write(name);%-->
+    <br />
+
+    <%=firstname%>
+       <%=lastname %>
+       <%= check2%>
+       <%=elsee %>
+       <%=radio1 %>
+       <%=textarea1 %>
+       <%= age%>
+
 </asp:Content>
