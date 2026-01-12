@@ -47,14 +47,14 @@
 
     <%--**איזור הצגת התוצאות**--%>
     <!--%Response.Write(name);%-->
-    <br />
 
-    <%=firstname%>
-       <%=lastname %>
-       <%= check2%>
-       <%=elsee %>
-       <%=radio1 %>
-       <%=textarea1 %>
-       <%= age%>
+
+    <%=firstname%><br />
+       <%=lastname %><br />
+       <%= check2%><br />
+       <%=elsee %><br />
+       <%=radio1 %><br />
+       <%=textarea1 %><br />
+       <%= age%><br />
 
 </asp:Content>
