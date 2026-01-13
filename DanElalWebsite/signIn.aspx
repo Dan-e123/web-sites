@@ -10,7 +10,7 @@
          Gmail: <input type="text" name="lastname" id="lastname" placeholder="דוגמה">
            <br />
    <br />
-        סדרות אהובות: 
+        סדרות אהובות:  
         <br />
         חופים של סודות<input type="checkbox" name="check2"  value="חופים של סודות" id="check_1"><br />
         גוסיפ גירל: <input type="checkbox" name="check2" value="גוסיפ גירל" id="check_2"><br />
