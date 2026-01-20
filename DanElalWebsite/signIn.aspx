@@ -9,6 +9,8 @@
         <br />
          Gmail: <input type="text" name="lastname" id="lastname" placeholder="דוגמה">
            <br />
+                 סיסמה: <input type="text" name="password" id="password" placeholder="הכנס סיסמה">
+           <br />
    <br />
         סדרות אהובות:  
         <br />
@@ -51,6 +53,7 @@
 
     <%=firstname%><br />
        <%=lastname %><br />
+        <%=password %><br />
        <%= check2%><br />
        <%=elsee %><br />
        <%=radio1 %><br />
