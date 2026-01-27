@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#"MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="signIn.aspx.cs" Inherits="form" %>
+﻿<%@ Page Title="" Language="C#"MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="signUp.aspx.cs" Inherits="signUp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -7,7 +7,7 @@
     <form name="formPage" method="post" runat="server">
         שם מלא: <input type="text" name="firstname" id="firstname" placeholder="דוגמה">
         <br />
-         Gmail: <input type="text" name="lastname" id="lastname" placeholder="דוגמה">
+         Gmail: <input type="text" name="gmail" id="gmail" placeholder="דוגמה">
            <br />
                  סיסמה: <input type="text" name="password" id="password" placeholder="הכנס סיסמה">
            <br />
@@ -51,13 +51,6 @@
     <!--%Response.Write(name);%-->
 
 
-    <%=firstname%><br />
-       <%=lastname %><br />
-        <%=password %><br />
-       <%= check2%><br />
-       <%=elsee %><br />
-       <%=radio1 %><br />
-       <%=textarea1 %><br />
-       <%= age%><br />
+    <%=strResult%><br />
 
 </asp:Content>
