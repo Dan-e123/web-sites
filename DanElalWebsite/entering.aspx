@@ -2,8 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-      <h1 style="text-align: center;">כניסה</h1>
-</asp:Content>
+    <h1> כניסה לאתר</h1>
 
+
+        gmail:
+        <input type="text" name="gmail" id="gmail" placeholder="דוגמה" />
+        <br />
+
+        password:
+        <input type="text" name="password" id="password" placeholder="דוגמה" />
+        <br /><br />
+               <input id="Submit1" type="submit" value="שלח" />
+    </asp:Content>
