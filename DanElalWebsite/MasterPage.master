@@ -28,7 +28,7 @@
                           <a href="search.aspx"><img class="gallery" src="photos/חיפוש.png" /></a>
                      <a href="manager.aspx"><img class="gallery" src="photos/מנהל.png" /></a>
                        <a href="updateDetails.aspx"><img class="gallery" src="photos/עדכון פרטים.png" /></a>
-                     <a href="signIn.aspx"><img class="gallery" src="photos/הרשמה2.png" /></a>
+                     <a href="signUp.aspx"><img class="gallery" src="photos/הרשמה2.png" /></a>
                 </td>
             </tr>
             <tr>

@@ -6,20 +6,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 public partial class signUp : System.Web.UI.Page
 {
-    public string strResult;
+    public string strResult="";
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack)
         {
-           string firstname =Request.Form["firstname"];
-          string gmail =Request.Form["gmail"];
-           string password =Request.Form["password"];
-           string check2 =Request.Form["check2"];
-           string elsee =Request.Form["elsee"];
-           string radio1 =Request.Form["radio1"];
-           string textarea1 =Request.Form["textarea1"];
-          string age =Request.Form["age"];
+            string firstname = Request.Form["firstname"];
+            string gmail = Request.Form["gmail"];
+            string password = Request.Form["password"];
+            string check2 = Request.Form["check2"];
+            string elsee = Request.Form["elsee"];
+            string radio1 = Request.Form["radio1"];
+            string textarea1 = Request.Form["textarea1"];
+            string age = Request.Form["age"];
+
+
+            string sqlSelect = "SELECT * FROM tUsers" + " WHERE Gmail = N'" + gmail + "'";
+            bool exists = MyAdoHelper.IsExist(sqlSelect);
+            if (exists)
+                strResult = "מייל שהוכנס קיים במערכת,הכנס מייל חדש";
+            else
+            { 
 
             string sqlInsert = "INSERT INTO tUsers " +
                                "VALUES " +
@@ -36,5 +44,6 @@ public partial class signUp : System.Web.UI.Page
 
             strResult = "נרשמת בהצלחה";
         }
+           }
     }
 }

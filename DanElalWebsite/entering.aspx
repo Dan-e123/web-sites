@@ -7,13 +7,15 @@
 
     <h1> כניסה לאתר</h1>
 
-
+    <form runat="server" method="post">
         gmail:
-        <input type="text" name="gmail" id="gmail" placeholder="דוגמה" />
+        <input type="text" name="email" id="email" placeholder="דוגמה" />
         <br />
 
         password:
         <input type="text" name="password" id="password" placeholder="דוגמה" />
         <br /><br />
                <input id="Submit1" type="submit" value="שלח" />
+        </form>
+    <%=stResult %>
     </asp:Content>
