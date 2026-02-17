@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1>הרשמה לאתר </h1>
     <form name="formPage" method="post" runat="server">
-        שם מלא: <input type="text" name="firstname" id="firstname" placeholder="דוגמה">
+        שם מלא: <input type="text" name="fullName" id="fullName" placeholder="דוגמה">
         <br />
          Gmail: <input type="text" name="gmail" id="gmail" placeholder="דוגמה">
            <br />
