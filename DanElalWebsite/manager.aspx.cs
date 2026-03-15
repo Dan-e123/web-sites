@@ -16,7 +16,8 @@ public partial class manager : System.Web.UI.Page
             string fullName = Request.Form["fullName"];
             string Gmail = Request.Form["Gmail"];
 
-            string sqlSelect = "SELECT * FROM tUsers" + " WHERE fullName= N'" + fullName + "'" + " AND Gmail =N'" + Gmail + "'";
+            string sqlSelect = "SELECT * FROM tUsers" +
+                " WHERE fullName LIKE N'%" + fullName + "%'" + " AND Gmail LIKE N'%" + Gmail + "%'";
 
             DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
 
