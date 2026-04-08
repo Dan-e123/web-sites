@@ -20,15 +20,16 @@
         <table border="1" style="width: 90%; height: 600px">
             <tr style="height:100px" >
                 <td style="text-align:center">
-                    <a href="Home.aspx"><img class="gallery" src="photos/דף%20הבית.png" /></a>
-                    <a href="entering.aspx"><img  class="gallery"  src="photos/כניסה.png" /></a>
-                       <a href="info.aspx"><img  class="gallery"  src="photos/מידע.png" /></a>
-                    <a href="gallery.aspx"><img class="gallery" src="photos/גלריה.png" /></a>
-                          <a href="exit.aspx"><img class="gallery" src="photos/יציאה.png" /></a>
-                          <a href="search.aspx"><img class="gallery" src="photos/חיפוש.png" /></a>
-                     <a href="manager.aspx"><img class="gallery" src="photos/מנהל.png" /></a>
-                       <a href="updateDetails.aspx"><img class="gallery" src="photos/עדכון פרטים.png" /></a>
-                     <a href="signUp.aspx"><img class="gallery" src="photos/הרשמה2.png" /></a>
+                    <a href="Home.aspx"><img class="gallery" src="photos/logoP/HomeM.png" /></a>
+                    <a href="entering.aspx"><img  class="gallery"  src="photos/logoP/כניסה מ.png" /></a>
+                       <a href="info.aspx"><img  class="gallery"  src="photos/logoP/מידע מ.png" /></a>
+                    <a href="gallery.aspx"><img class="gallery" src="photos/logoP/גלריה מ.png" /></a>
+                          <a href="exit.aspx"><img class="gallery" src="photos/logoP/יציאה מ.png" /></a>
+                          <a href="search.aspx"><img class="gallery" src="photos/logoP/חיפוש מ.png" /></a>
+                     <a href="manager.aspx"><img class="gallery" src="photos/logoP/מנהל מ.png" /></a>
+                       <a href="updateDetails.aspx"><img class="gallery" src="photos/logoP/עדכון פרטים מ.png" /></a>
+                     <a href="signUp.aspx"><img class="gallery" src="photos/logoP/הרשמה מ.png" /></a>
+                      <a href="infoSeries.aspx"><img class="gallery" src="photos/logoP/מידע על סדרות מ.png" /></a>
                 </td>
             </tr>
             <tr>
