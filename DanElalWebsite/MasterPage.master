@@ -15,6 +15,10 @@
     </style>
 </head>
 <body dir="rtl" style="background-color: lightcyan">
+
+
+        <center>
+   שלום <%=Session["email"] %>
     <center>
         <font style="color: midnightblue; font-size: 50px; font-variant"> סדרות</font>
         <table border="1" style="width: 90%; height: 600px">
