@@ -40,7 +40,7 @@ public partial class entering : System.Web.UI.Page
                     // stResult = "משתמש רשום";
                     Response.Redirect("Home.aspx");
                     Session["email"] = "משתמש רשום";
-
+                     
                 }
             }
         }
