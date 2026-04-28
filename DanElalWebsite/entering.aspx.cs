@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,11 +18,13 @@ public partial class entering : System.Web.UI.Page
 
             if (gmail == "elaldan2025@gmail.com" && password == "dan123")
             {
-                Session["email"] = " דן המנהלת";
+                Session["nihol"] = "ok";
+                Session["name"] = " דן המנהלת";
                 Response.Redirect("manager.aspx");
             }
             else
             {
+
 
                 //בדיקת משתמש רגיל
                 string sqlSelect =
@@ -29,15 +32,17 @@ public partial class entering : System.Web.UI.Page
            "WHERE Gmail = N'" + gmail + "' " +
            "AND password = N'" + password + "'";
 
-                bool userExists = MyAdoHelper.IsExist(sqlSelect);
-                if (!userExists)
+               System.Data.DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
+                if (dt.Rows.Count==0)
                 {
                     stResult = "אימייל או סיסמה שגויים";
-                    Session["email"] = "אורח";
+                    Session["name"] = "אורח";
                 }
                 else
                 {
                     // stResult = "משתמש רשום";
+                    Session["name"]=dt.Rows[0]["name"];
+                    Session["user"] = "ok";
                     Response.Redirect("Home.aspx");
                     Session["email"] = "משתמש רשום";
                      

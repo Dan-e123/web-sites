@@ -32,3 +32,4 @@ public partial class infoSeries : System.Web.UI.Page
         }
     }
 }
+

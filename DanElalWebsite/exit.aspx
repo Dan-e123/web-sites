@@ -4,5 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 style="text-align: center;">יציאה</h1>
+    <%Session.Abandon();
+        //Response.Write("התנתקת");
+        Response.Redirect("entering.aspx");
+        %>
+
+
 </asp:Content>
 
