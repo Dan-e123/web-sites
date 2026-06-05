@@ -1,59 +1,89 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class showSeries : System.Web.UI.Page
 {
+    // משתנה שישמור את טבלת התוצאות או הודעת "אין נתונים"
     public string st = "";
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (IsPostBack)
+        // בדיקה האם המשתמש מחובר כמשתמש רגיל או כמנהל
+        // אם לא מחובר - מעבר לדף הכניסה
+        if (Session["user"] == null && Session["nihol"] == null)
         {
-            string movie = Request.Form["movie"];
-            string actors = Request.Form["actors"];
+            Response.Redirect("entering.aspx");
+        }
 
-            string sqlSelect = "SELECT * FROM infoSeries " +
-                "WHERE movie LIKE N'%" + movie + "%' " +
-                "AND actors LIKE N'%" + actors + "%'";
+        // קבלת הערכים שהוזנו בטופס החיפוש
+        string movie = Request.Form["movie"];
+        string actors = Request.Form["actors"];
 
-            DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
+        // ברירת מחדל - הצגת כל הסדרות מטבלת infoSeries
+        string sqlSelect = "SELECT * FROM infoSeries";
 
-            if (dt.Rows.Count == 0)
+        // אם הוזן שם סדרה או שם שחקן
+        if ((movie != null && movie != "") ||
+            (actors != null && actors != ""))
+        {
+            // יצירת בסיס לשאילתת החיפוש
+            // WHERE 1=1 מאפשר להוסיף תנאי AND בקלות בהמשך
+            sqlSelect = "SELECT * FROM infoSeries WHERE 1=1";
+
+            // אם הוזן שם סדרה - חיפוש חלקי לפי שם הסדרה
+            if (movie != null && movie != "")
             {
-                st = "אין נתונים";
+                sqlSelect += " AND movie LIKE N'%" + movie + "%'";
             }
-            else
+
+            // אם הוזן שם שחקן - חיפוש חלקי לפי שם השחקן
+            if (actors != null && actors != "")
             {
-                st += "<table border='1'>";
+                sqlSelect += " AND actors LIKE N'%" + actors + "%'";
+            }
+        }
+
+        // ביצוע השאילתה ושמירת התוצאות בטבלת נתונים
+        DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
+
+        // אם לא נמצאו תוצאות
+        if (dt.Rows.Count == 0)
+        {
+            st = "אין נתונים";
+        }
+        else
+        {
+            // יצירת טבלת HTML להצגת הנתונים
+            st += "<table border='1'>";
+
+            // יצירת שורת הכותרות של הטבלה
+            st += "<tr>";
+            st += "<th>קוד</th>";
+            st += "<th>שם סדרה</th>";
+            st += "<th>דמויות</th>";
+            st += "<th>שחקנים</th>";
+            st += "<th>תקציר</th>";
+            st += "</tr>";
+
+            // מעבר על כל הרשומות שהתקבלו מהמסד
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
                 st += "<tr>";
-                st += "<th>קוד</th>";
-                st += "<th>שם סדרה</th>";
-                st += "<th>דמויות</th>";
-                st += "<th>שחקנים</th>";
-                st += "<th>תקציר</th>";
-                st += "</tr>";
 
-                for (int i = 0; i < dt.Rows.Count; i++)
+                // מעבר על כל העמודות של הרשומה הנוכחית
+                for (int k = 0; k < dt.Columns.Count; k++)
                 {
-                    st += "<tr>";
-
-                    for (int k = 0; k < dt.Columns.Count; k++)
-                    {
-                        st += "<td>";
-                        st += dt.Rows[i][k];
-                        st += "</td>";
-                    }
-
-                    st += "</tr>";
+                    // הוספת ערך התא לטבלה
+                    st += "<td>" + dt.Rows[i][k] + "</td>";
                 }
 
-                st += "</table>";
+                st += "</tr>";
             }
+
+            // סגירת טבלת ה-HTML
+            st += "</table>";
         }
     }
 }

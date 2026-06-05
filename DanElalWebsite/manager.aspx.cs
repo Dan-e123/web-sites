@@ -8,52 +8,82 @@ using System.Web.UI.WebControls;
 
 public partial class manager : System.Web.UI.Page
 {
+    // משתנה שישמור את טבלת התוצאות או הודעות שיוצגו בדף
     public string st = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Page.IsPostBack)
+        // בדיקה האם המשתמש הוא מנהל
+        // אם Session["nihol"] ריק, המשתמש אינו מנהל
+        if (Session["nihol"] == null)
         {
-            string fullName = Request.Form["fullName"];
-            string Gmail = Request.Form["Gmail"];
+            // העברה לדף הבית
+            Response.Redirect("Home.aspx");
+        }
 
-            string sqlSelect = "SELECT * FROM tUsers" +
-                " WHERE fullName LIKE N'%" + fullName + "%'" + " AND Gmail LIKE N'%" + Gmail + "%'";
+        // קבלת הטקסט שהוקלד בתיבת החיפוש
+        string fullName = Request.Form["fullName"];
 
-            DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
+        // ברירת מחדל - הצגת כל המשתמשים
+        string sqlSelect = "SELECT * FROM tUsers";
 
-            if (dt.Rows.Count == 0)
+        // אם המשתמש הקליד משהו בתיבת החיפוש
+        // מבצעים חיפוש חלקי באמצעות LIKE
+        if (fullName != null && fullName != "")
+        {
+            sqlSelect = "SELECT * FROM tUsers WHERE fullName LIKE N'%" + fullName + "%'";
+        }
+
+        // ביצוע השאילתה ושמירת התוצאות בתוך טבלה
+        DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
+
+        // בדיקה האם נמצאו משתמשים
+        if (dt.Rows.Count == 0)
+        {
+            // אם לא נמצאו תוצאות תוצג הודעה
+            st = "אין משתמשים";
+        }
+        else
+        {
+            // יצירת טבלת HTML בתוך המשתנה st
+            st += "<table border='1'>";
+
+            // פתיחת שורת הכותרות
+            st += "<tr>";
+
+            // כותרות העמודות
+            st += "<th>שם מלא</th>";
+            st += "<th>מייל</th>";
+            st += "<th>סדרות אהובות</th>";
+            st += "<th>אחר</th>";
+            st += "<th>קבלת עדכונים</th>";
+            st += "<th>מלל חופשי</th>";
+            st += "<th>גיל</th>";
+
+            // סגירת שורת הכותרות
+            st += "</tr>";
+
+            // לולאה שעוברת על כל המשתמשים שנמצאו
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                st = "אין נתונים";
-            }
-            else
-            {
-                st += "<table border='1'>";
+                // פתיחת שורה חדשה בטבלה
                 st += "<tr>";
-                st += "<th>שם מלא</th>";
-                st += "<th>מייל</th>";
-                st += "<th> סדרות אהובות</th>";
-                st += "<th> קבלת עידכונים</th>";
-                st += "<th> מלל חופשי</th>";
-                st += "<th> גיל</th>";
 
+                // הכנסת הנתונים של המשתמש הנוכחי
+                st += "<td>" + dt.Rows[i]["fullName"] + "</td>";
+                st += "<td>" + dt.Rows[i]["Gmail"] + "</td>";
+                st += "<td>" + dt.Rows[i]["favoriteSeries"] + "</td>";
+                st += "<td>" + dt.Rows[i]["other"] + "</td>";
+                st += "<td>" + dt.Rows[i]["updates"] + "</td>";
+                st += "<td>" + dt.Rows[i]["freeText"] + "</td>";
+                st += "<td>" + dt.Rows[i]["age "] + "</td>";
 
-
-
-
-
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    st += "<tr>";
-                    for (int k = 0; k < dt.Columns.Count; k++)
-                    {
-                        st += "<td>";
-                        st += dt.Rows[i][k];
-                        st += "</td>";
-                    }
-                    st += "</tr>";
-                }
-                st += "</table>";
+                // סגירת השורה
+                st += "</tr>";
             }
+
+            // סגירת הטבלה
+            st += "</table>";
         }
     }
 }

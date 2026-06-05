@@ -9,6 +9,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        // אם אין שם משתמש ב-Session
+        if (Session["hello"] == null)
+        {
+            // המשתמש מוגדר כאורח
+            Session["hello"] = "אורח";
+        }
     }
 }

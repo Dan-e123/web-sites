@@ -4,45 +4,266 @@
 
 <html>
 <head runat="server">
-    <title>אתר סדרות</title>
+
+    <%-- כותרת האתר שמופיעה בלשונית הדפדפן --%>
+    <title>עולם הסדרות</title>
+
+    <%-- אזור שבו כל דף יכול להוסיף CSS, JavaScript או קוד נוסף ל-head --%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
     <style>
-        img.gallery {
-            width: 100px;
-            height: 100px;
+
+        /* עיצוב כל האתר */
+        body {
+
+            margin: 0;
+
+            font-family: Arial;
+
+            direction: rtl;
+
+            background: linear-gradient(to bottom, #f8f8ff, #ececff);
+
         }
+
+        /* עיצוב כותרת האתר */
+        .title {
+
+            text-align: center;
+
+            font-size: 60px;
+
+            color: #6c63ff;
+
+            font-weight: bold;
+
+            margin-top: 30px;
+
+            letter-spacing: 3px;
+
+        }
+
+        /* עיצוב תפריט הניווט */
+        .navbar {
+
+            width: 90%;
+
+            margin: auto;
+
+            margin-top: 20px;
+
+            background-color: rgba(255,255,255,0.7);
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+        }
+
+        /* עיצוב הקישורים שבתפריט */
+        .navbar a {
+
+            text-decoration: none;
+
+            color: #444;
+
+            font-size: 18px;
+
+            margin: 12px;
+
+            transition: 0.3s;
+
+            font-weight: bold;
+
+        }
+
+        /* אפקט מעבר עכבר על קישור */
+        .navbar a:hover {
+
+            color: #6c63ff;
+
+        }
+
+        /* אזור התוכן של הדפים */
+        .content {
+
+            width: 85%;
+
+            margin: auto;
+
+            margin-top: 35px;
+
+            background-color: rgba(255,255,255,0.85);
+
+            border-radius: 25px;
+
+            padding: 35px;
+
+            min-height: 600px;
+
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+
+        }
+
+        /* אזור הצגת שם המשתמש */
+        .hello {
+
+            text-align: left;
+
+            padding: 15px 40px;
+
+            color: gray;
+
+        }
+
+        /* עיצוב כל כפתורי השליחה באתר */
+        input[type=submit] {
+
+            background-color: #6c63ff;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 25px;
+
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            font-size: 16px;
+
+        }
+
+        /* אפקט מעבר עכבר על כפתור */
+        input[type=submit]:hover {
+
+            background-color: #574bdb;
+
+        }
+
+        /* עיצוב שדות קלט */
+        input[type=text],
+        input[type=password],
+        textarea,
+        select {
+
+            width: 300px;
+
+            padding: 12px;
+
+            border-radius: 12px;
+
+            border: 1px solid lightgray;
+
+            margin-top: 5px;
+
+            margin-bottom: 15px;
+
+        }
+
+        /* עיצוב כותרות */
+        h1 {
+
+            color: #6c63ff;
+
+        }
+
+        /* עיצוב הפוטר */
+        .footer {
+
+            margin-top: 40px;
+
+            background-color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            color: gray;
+
+        }
+
     </style>
+
 </head>
-<body dir="rtl" style="background-color: lightcyan">
 
+<body>
 
-        <right>
-   שלום <%=Session["name"] %>
-    <center>
-        <font style="color: midnightblue; font-size: 50px; font-variant"> סדרות</font>
-        <table border="1" style="width: 90%; height: 600px">
-            <tr style="height:100px" >
-                <td style="text-align:center">
-                    <a href="Home.aspx"><img class="gallery" src="photos/logoP/HomeM.png" /></a>
-                    <a href="entering.aspx"><img  class="gallery"  src="photos/logoP/כניסה מ.png" /></a>
-                       <a href="info.aspx"><img  class="gallery"  src="photos/logoP/מידע מ.png" /></a>
-                    <a href="gallery.aspx"><img class="gallery" src="photos/logoP/גלריה מ.png" /></a>
-                          <a href="exit.aspx"><img class="gallery" src="photos/logoP/יציאה מ.png" /></a>
-                          <a href="search.aspx"><img class="gallery" src="photos/logoP/חיפוש מ.png" /></a>
-                     <a href="manager.aspx"><img class="gallery" src="photos/logoP/מנהל מ.png" /></a>
-                       <a href="updateDetails.aspx"><img class="gallery" src="photos/logoP/עדכון פרטים מ.png" /></a>
-                     <a href="signUp.aspx"><img class="gallery" src="photos/logoP/הרשמה מ.png" /></a>
-                      <a href="infoSeries.aspx"><img class="gallery" src="photos/logoP/מידע על סדרות מ.png" /></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
-                </td>
-            </tr>
-            </table>
-        </center>
+    <%-- הצגת שם המשתמש מתוך Session["hello"] --%>
+    <div class="hello">
+
+        שלום <%=Session["hello"] %>
+
+    </div>
+
+    <%-- כותרת קבועה שמופיעה בכל דפי האתר --%>
+    <div class="title">
+
+        עולם הסדרות
+
+    </div>
+
+    <%-- תפריט הניווט הראשי של האתר --%>
+<div class="navbar">
+
+    <a href="Home.aspx">🏠 דף הבית</a>
+
+    <a href="info.aspx">💜 אודות</a>
+
+    <a href="gallery.aspx">🎬 גלריה</a>
+
+    <%-- קישורים שמוצגים רק לאורח (לא מחובר) --%>
+    <% if (Session["user"] == null && Session["nihol"] == null) { %>
+
+        <a href="signUp.aspx">📝 הרשמה</a>
+
+        <a href="entering.aspx">🔐 כניסה</a>
+
+    <% } %>
+
+    <%-- קישורים שמוצגים למשתמש רשום --%>
+    <% if (Session["user"] != null) { %>
+
+        <a href="infoSeries.aspx">➕ הוספת סדרה</a>
+
+        <a href="showSeries.aspx">📺 חיפוש סדרות</a>
+
+        <a href="exit.aspx">🚪 יציאה</a>
+
+    <% } %>
+
+    <%-- קישורים שמוצגים למנהל --%>
+    <% if (Session["nihol"] != null) { %>
+
+        <a href="infoSeries.aspx">➕ הוספת סדרה</a>
+
+        <a href="showSeries.aspx">📺 חיפוש סדרות</a>
+
+        <a href="manager.aspx">👑 מנהל</a>
+
+        <a href="exit.aspx">🚪 יציאה</a>
+
+    <% } %>
+
+</div>
+
+    <%-- כאן נטען התוכן של כל דף באתר --%>
+    <div class="content">
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+    </div>
+
 </body>
 </html>
